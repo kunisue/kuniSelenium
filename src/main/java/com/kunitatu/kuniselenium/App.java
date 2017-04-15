@@ -1,13 +1,18 @@
 package com.kunitatu.kuniselenium;
 
 /**
- * Hello world!
+ * zzz.
  *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+public class App {
+  /**
+   * zzzzz.
+   * 
+   * @param args
+   *            xxx
+   */
+  public static void main(String[] args) {
+    // System.out.println("Hello World!");
+    System.exit(0);
+  }
 }
