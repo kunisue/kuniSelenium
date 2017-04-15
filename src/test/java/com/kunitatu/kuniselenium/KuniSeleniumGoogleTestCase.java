@@ -25,37 +25,7 @@ import junit.framework.TestCase;
  * @author kunit
  *
  */
-public class KuniSeleniumGoogleTestCase extends TestCase {
-
-	private WebDriver driver;
-
-	@Before
-	public void setUp() {
-		System.setProperty("webdriver.ie.driver", "C:\\app\\IEDriverServer\\IEDriverServer.exe");
-
-		InternetExplorerDriverService.Builder builder = new InternetExplorerDriverService.Builder();
-
-		InternetExplorerDriverService service = builder.usingPort(5555).withHost("127.0.0.1").build();
-
-		DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-		caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-
-		driver = new InternetExplorerDriver(service, caps);
-	}
-
-	@After
-	public void quit() throws Exception {
-		driver.quit();
-	}
-	
-	public void driverWait(){
-		new WebDriverWait(driver, 10);
-	}
-
-	public void screenShot(String folder, String fileName) throws Exception {
-		FileUtils.copyFile(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE),
-				new File("target\\image\\" + folder + "\\" + fileName));
-	}
+public class KuniSeleniumGoogleTestCase extends AbstractKuniSelenium {
 
 	@Test
 	public void test001() throws Exception {
@@ -67,62 +37,12 @@ public class KuniSeleniumGoogleTestCase extends TestCase {
 
 		driver.findElement(By.id("lst-ib")).sendKeys("jenkins");
 		this.screenShot("test001", "KuniSeleniumGoogleTestCase-test001-002.png");
-		
-		//driver.findElement(By.name("btnK")).click();
+
+		// driver.findElement(By.name("btnK")).click();
 		driver.findElement(By.id("lst-ib")).submit();
 		this.driverWait();
 		this.screenShot("test001", "KuniSeleniumGoogleTestCase-test001-003.png");
-		
+
 	}
 
-	/*
-	 * public interface WebDriverFactory {
-	 * 
-	 * public WebDriver create();
-	 * 
-	 * }
-	 * 
-	 * public static Iterable<WebDriverFactory> getDriverFactories() {
-	 * ArrayList<WebDriverFactory> factories = new
-	 * ArrayList<WebDriverFactory>(); factories.add(new WebDriverFactory() {
-	 * 
-	 * @Override public WebDriver create() { return new FirefoxDriver(); } });
-	 * factories.add(new WebDriverFactory() {
-	 * 
-	 * @Override public WebDriver create() { return new ChromeDriver(); } });
-	 * return factories; }
-	 * 
-	 * // おためし：コードに直接書くべきではない・・・ private static final String url =
-	 * "https://..."; private static final String id = "hogehoge"; private
-	 * static final String password = "fugafuga";
-	 * 
-	 * @Test public void testXXX() throws Exception { for (WebDriverFactory
-	 * factory : getDriverFactories()) { WebDriver driver = factory.create();
-	 * try { driver.get(url); Wait<WebDriver> wait = new WebDriverWait(driver,
-	 * 30);
-	 * 
-	 * // Login page WebElement button =
-	 * wait.until(ExpectedConditions.elementToBeClickable(By.className(
-	 * "btn-primary")));
-	 * assertTrue(driver.getTitle().contains("YYY Dashboard"));
-	 * assertTrue(driver.getTitle().contains("Login") ||
-	 * driver.getTitle().contains("ログイン"));
-	 * driver.findElement(By.id("id_username")).sendKeys(id);
-	 * driver.findElement(By.id("id_password")).sendKeys(password);
-	 * button.submit();
-	 * 
-	 * // Top page WebElement linkElement = wait
-	 * .until(ExpectedConditions.elementToBeClickable(By.xpath(
-	 * "//a[@href='/path/to/xxx']"))); linkElement.sendKeys(Keys.ENTER);
-	 * 
-	 * // XXX page
-	 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("xxx")));
-	 * assertTrue(driver.getTitle().contains("YYY Dashboard"));
-	 * assertTrue(driver.getTitle().contains("XXX"));
-	 * 
-	 * FileUtils.copyFile(((TakesScreenshot)
-	 * driver).getScreenshotAs(OutputType.FILE), new
-	 * File(driver.getClass().getName() + "-xxx.png")); } finally {
-	 * driver.quit(); } } }
-	 */
 }
