@@ -29,16 +29,9 @@
   </dependencies>
 
 	<build>
-	  <outputDirectory>${project.build.directory}/classes</outputDirectory>
-	  <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
-	  <resources>
-	    <resource>
-	      <directory>${project.basedir}/src/main/resources</directory>
-	    </resource>
-	  </resources>
 	  <testResources>
 	    <testResource>
-	      <directory>${project.basedir}/target</directory>
+	      <directory>target/image/test001/*.png</directory>
 	    </testResource>
 	  </testResources>
 	</build>
