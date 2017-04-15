@@ -28,7 +28,7 @@
     </dependency>
   </dependencies>
 
-	<build>
+	<!-- <build>
 	  <plugins>
 	  <plugin>
 	    <groupId>org.apache.maven.plugins</groupId>
@@ -37,7 +37,7 @@
 	    <configuration>
 	      <argLine>-Dfile.encoding=UTF-8</argLine>
 	      <includes>
-	        <include>**/*.png</include>
+	        <include>**/*.class</include>
 	      </includes>
 	      <excludes>
 	        <exclude>**/HogeTestRule.class</exclude>
@@ -45,6 +45,6 @@
 	    </configuration>
 	  </plugin>
 	  </plugins>
-	</build>
+	</build> -->
 
 </project>
