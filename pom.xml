@@ -31,7 +31,7 @@
 	<build>
 	  <testResources>
 	    <testResource>
-	      <directory>target/image/test001/*.png</directory>
+	      <directory>**/target/image/test001/*.png</directory>
 	    </testResource>
 	  </testResources>
 	</build>
