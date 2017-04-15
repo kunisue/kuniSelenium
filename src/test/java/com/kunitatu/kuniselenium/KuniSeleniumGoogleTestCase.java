@@ -25,7 +25,7 @@ import junit.framework.TestCase;
  * @author kunit
  *
  */
-public class KuniSeleniumGoogle extends TestCase {
+public class KuniSeleniumGoogleTestCase extends TestCase {
 
 	private WebDriver driver;
 
@@ -63,15 +63,15 @@ public class KuniSeleniumGoogle extends TestCase {
 		driver.get("https://www.google.co.jp/");
 		this.driverWait();
 
-		this.screenShot("test001", "KuniSeleniumGoogle-test001-001.png");
+		this.screenShot("test001", "KuniSeleniumGoogleTestCase-test001-001.png");
 
 		driver.findElement(By.id("lst-ib")).sendKeys("jenkins");
-		this.screenShot("test001", "KuniSeleniumGoogle-test001-002.png");
+		this.screenShot("test001", "KuniSeleniumGoogleTestCase-test001-002.png");
 		
 		//driver.findElement(By.name("btnK")).click();
 		driver.findElement(By.id("lst-ib")).submit();
 		this.driverWait();
-		this.screenShot("test001", "KuniSeleniumGoogle-test001-003.png");
+		this.screenShot("test001", "KuniSeleniumGoogleTestCase-test001-003.png");
 		
 	}
 
