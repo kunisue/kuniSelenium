@@ -1,6 +1,7 @@
 package com.kunitatu.kuniselenium;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
@@ -29,15 +30,12 @@ public abstract class AbstractKuniSelenium {
 		caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
 
 		driver = new InternetExplorerDriver(service, caps);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	@After
-	public void quit() throws Exception {
+	public void tearDown() throws Exception {
 		driver.quit();
-	}
-
-	public void driverWait() {
-		new WebDriverWait(driver, 10);
 	}
 
 	public void screenShot(String folder, String fileName) throws Exception {
