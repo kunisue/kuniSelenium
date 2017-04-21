@@ -24,7 +24,7 @@ public class KuniSeleniumGoogleTestCase extends AbstractKuniSelenium {
 		this.screenShot("test001", "KuniSeleniumGoogleTestCase-test001-001.png");
 
 		driver.findElement(By.id("lst-ib")).sendKeys("jenkins");
-		this.screenShot("test001", "KuniSeleniumGoogleTestCase-test001-002.png");
+		this.screenShot("test002", "KuniSeleniumGoogleTestCase-test001-002.png");
 
 		driver.findElement(By.id("lst-ib")).submit();
 		// 特別にタイムアウトを指定する場合
@@ -33,7 +33,7 @@ public class KuniSeleniumGoogleTestCase extends AbstractKuniSelenium {
 				return d.findElement(By.id("lst-ib"));
 			}
 		});
-		this.screenShot("test001", "KuniSeleniumGoogleTestCase-test001-003.png");
+		this.screenShot("test003", "KuniSeleniumGoogleTestCase-test001-003.png");
 
 	}
 
